@@ -2,7 +2,7 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include "rtweekend.h"
+#include "Utils.h"
 
 class camera {
 public:
@@ -18,8 +18,8 @@ public:
         lower_left_corner = origin - horizontal / 2 - vertical / 2 - vec3(0, 0, focal_length);
     }
 
-    ray get_ray(double u, double v) const {
-        return ray(origin, lower_left_corner + u * horizontal + v * vertical - origin);
+    Ray get_ray(double u, double v) const {
+        return Ray(origin, lower_left_corner + u * horizontal + v * vertical - origin);
     }
 
 private:

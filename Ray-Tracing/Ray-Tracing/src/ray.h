@@ -2,25 +2,22 @@
 #ifndef RAY_H
 #define RAY_H
 
+//#include "vendor/glm/ext/vector_double3.hpp"
 #include "vec3.h"
 
-class ray {
+class Ray {
 public:
-    ray() {}
-    ray(const point3& origin, const vec3& direction)
-        : orig(origin), dir(direction)
-    {}
+    Ray();
+    Ray(const vec3& origin, const vec3& direction);
 
-    point3 origin() const { return orig; }
-    vec3 direction() const { return dir; }
+    vec3 GetOrigin() const;
+    vec3 GetDirection() const;
 
-    point3 at(double t) const {
-        return orig + t * dir;
-    }
+    vec3 GetPosAtDir(double t) const;
 
-public:
-    point3 orig;
-    vec3 dir;
+private:
+    vec3 m_Orig;
+    vec3 m_Dir;
 };
 
 #endif

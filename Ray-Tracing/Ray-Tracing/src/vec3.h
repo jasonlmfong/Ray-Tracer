@@ -108,15 +108,25 @@ inline vec3 unit_vector(vec3 v) {
     return v / v.length();
 }
 
+inline double randomDouble() {
+    // Returns a random real in [0,1).
+    return rand() / (RAND_MAX + 1.0);
+}
+
+inline double randomDouble(double min, double max) {
+    // Returns a random real in [min,max).
+    return min + (max - min) * randomDouble();
+}
+
 inline static vec3 random() {
-    return vec3(random_double(), random_double(), random_double());
+    return vec3(randomDouble(), randomDouble(), randomDouble());
 }
 
 inline static vec3 random(double min, double max) {
-    return vec3(random_double(min, max), random_double(min, max), random_double(min, max));
+    return vec3(randomDouble(min, max), randomDouble(min, max), randomDouble(min, max));
 }
 
-vec3 random_in_unit_sphere() {
+inline vec3 random_in_unit_sphere() {
     while (true) {
         auto p = random(-1, 1);
         if (p.length_squared() >= 1) continue;
@@ -124,10 +134,10 @@ vec3 random_in_unit_sphere() {
     }
 }
 
-vec3 random_unit_vector() {
+inline vec3 random_unit_vector() {
     return unit_vector(random_in_unit_sphere());
 }
 
-vec3 reflect(const vec3& v, const vec3& n) {
+inline vec3 reflect(const vec3& v, const vec3& n) {
     return v - 2 * dot(v, n) * n;
 }
