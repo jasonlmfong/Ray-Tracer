@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Application.cpp" />
+    <ClCompile Include="src\vec3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\camera.h" />
