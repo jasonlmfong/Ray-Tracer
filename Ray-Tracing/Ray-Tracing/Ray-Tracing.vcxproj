@@ -139,6 +139,7 @@
   <ItemGroup>
     <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="src\Ray.cpp" />
+    <ClCompile Include="src\Scene.cpp" />
     <ClCompile Include="src\vendor\glm\detail\glm.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -148,6 +149,7 @@
     <ClInclude Include="src\hittable_list.h" />
     <ClInclude Include="src\material.h" />
     <ClInclude Include="src\Ray.h" />
+    <ClInclude Include="src\Scene.h" />
     <ClInclude Include="src\sphere.h" />
     <ClInclude Include="src\Utils.h" />
     <ClInclude Include="src\vec3.h" />
