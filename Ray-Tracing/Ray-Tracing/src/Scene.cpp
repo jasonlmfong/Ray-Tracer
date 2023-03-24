@@ -20,25 +20,28 @@ void Scene::BuildScene1() {
 
 	auto material_ground = make_shared<Lambertian>(Color(0.8, 0.8, 0.0));
 	auto material_center = make_shared<Lambertian>(Color(0.7, 0.3, 0.3));
+	auto material_front = make_shared<Lambertian>(Color(0.1, 0.2, 0.5));
 	auto material_left	 = make_shared<Dielectric>(1.5);
 	auto material_right  = make_shared<Metal>(Color(0.8, 0.6, 0.2), 1.0);
 
 	world.add(make_shared<Sphere>(Point3(0.0, -100.5, -1.0), 100.0, material_ground));
 	world.add(make_shared<Sphere>(Point3(0.0, 0.0, -1.5), 0.5, material_center));
-	world.add(make_shared<Sphere>(Point3(-1.0, 0.0, -2.0), -0.4, material_left));
+	world.add(make_shared<Sphere>(Point3(0.0, 0.0, -0.5), 0.5, material_front));
+	world.add(make_shared<Sphere>(Point3(-1.0, 0.0, -2.0), 0.5, material_left));
+	world.add(make_shared<Sphere>(Point3(-1.0, 0.0, -2.0), -0.45, material_left)); //glass ball with thickness
 	world.add(make_shared<Sphere>(Point3(1.0, 0.0, -1.0), 0.5, material_right));
 
 	m_World = world;
 
 	// camera
-	Point3 lookfrom(3, 3, 2);
-	Point3 lookat(0, 0, -1);
+	Point3 lookfrom(-2, 2, 1);
+	Point3 lookat(0, 0, -1.5);
 	vec3 vup(0, 1, 0);
 	auto dist_to_focus = (lookfrom - lookat).length();
-	auto aperture = 2.0;
+	auto aperture = 0.5; // adjust depth of field 
 	auto aspect_ratio = 16.0 / 9.0;
 
-	Camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture, dist_to_focus);
+	Camera cam(lookfrom, lookat, vup, 45, aspect_ratio, aperture, dist_to_focus);
 
 	m_Camera = cam;
 }
