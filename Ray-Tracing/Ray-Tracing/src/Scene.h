@@ -1,7 +1,7 @@
 #pragma once
 
-#include "hittable_list.h"
-#include "camera.h"
+#include "HittableList.h"
+#include "Camera.h"
 
 class Scene {
 public:
@@ -9,6 +9,6 @@ public:
 	void BuildScene1();
 	void BuildScene2();
 
-	hittable_list m_World;
-	camera m_Camera;
+	HittableList m_World;
+	Camera m_Camera;
 };

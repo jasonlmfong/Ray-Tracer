@@ -143,14 +143,14 @@
     <ClCompile Include="src\vendor\glm\detail\glm.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\camera.h" />
-    <ClInclude Include="src\color.h" />
-    <ClInclude Include="src\hittable.h" />
-    <ClInclude Include="src\hittable_list.h" />
-    <ClInclude Include="src\material.h" />
+    <ClInclude Include="src\Camera.h" />
+    <ClInclude Include="src\Color.h" />
+    <ClInclude Include="src\Hittable.h" />
+    <ClInclude Include="src\HittableList.h" />
+    <ClInclude Include="src\Material.h" />
     <ClInclude Include="src\Ray.h" />
     <ClInclude Include="src\Scene.h" />
-    <ClInclude Include="src\sphere.h" />
+    <ClInclude Include="src\Sphere.h" />
     <ClInclude Include="src\Utils.h" />
     <ClInclude Include="src\vec3.h" />
     <ClInclude Include="src\vendor\glm\common.hpp" />
