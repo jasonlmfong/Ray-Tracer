@@ -43,43 +43,63 @@ void Scene::BuildScene1() {
 	m_Camera = cam;
 }
 
-//void Scene::BuildScene2() {
-//	hittable_list objects;
-//
-//	std::shared_ptr<Material> red = std::make_shared<Lambertian>(vec3(0.65, 0.05, 0.05));
-//	std::shared_ptr<Material> white = std::make_shared<Lambertian>(vec3(0.73, 0.73, 0.73));
-//	std::shared_ptr<Material> green = std::make_shared<Lambertian>(vec3(0.12, 0.45, 0.15));
-//	std::shared_ptr<Material> light = std::make_shared<DiffuseLight>(vec3(15.0, 15.0, 15.0));
-//
-//	objects.add(std::make_shared<YZRect>(0.0, 555.0, 0.0, 555.0, 555.0, green));
-//	objects.add(std::make_shared<YZRect>(0.0, 555.0, 0.0, 555.0, 0.0, red));
-//	objects.add(std::make_shared<XZRect>(213.0, 343.0, 227.0, 332.0, 554.0, light));
-//	objects.add(std::make_shared<XZRect>(0.0, 555.0, 0.0, 555.0, 0.0, white));
-//	objects.add(std::make_shared<XZRect>(0.0, 555.0, 0.0, 555.0, 555.0, white));
-//	objects.add(std::make_shared<XYRect>(0.0, 555.0, 0.0, 555.0, 555.0, white));
-//
-//	std::shared_ptr<HittableObject> box1 = std::make_shared<Box>(vec3(0.0, 0.0, 0.0), vec3(165.0, 330.0, 165.0), white);
-//	box1 = std::make_shared<RotateY>(box1, 15.0);
-//	box1 = std::make_shared<Translate>(box1, vec3(265.0, 0.0, 295.0));
-//
-//	std::shared_ptr<HittableObject> box2 = std::make_shared<Box>(vec3(0.0, 0.0, 0.0), vec3(165.0, 165.0, 165.0), white);
-//	box2 = std::make_shared<RotateY>(box2, -18.0);
-//	box2 = std::make_shared<Translate>(box2, vec3(130.0, 0.0, 65.0));
-//
-//	objects.add(box1);
-//	objects.add(box2);
-//
-//	m_HittableObjectList = objects;
-//
-//	vec3 cameraPosition(278.0, 278.0, -800.0);
-//	vec3 lookAt(278.0, 278.0, 0.0);
-//	vec3 up(0.0, 1.0, 0.0);
-//	double focusDistance = glm::length(cameraPosition - lookAt);
-//	double aperture = 0.0;
-//	double vFOV = 40.0;
-//	double imageAspectRatio = 1.0;
-//
-//	Camera camera(cameraPosition, lookAt, up, vFOV, imageAspectRatio, aperture, focusDistance, 0.0, 1.0);
-//
-//	m_Camera = camera;
-//}
+void Scene::BuildScene2() {
+	// world
+	hittable_list world;
+
+	auto ground_material = make_shared<lambertian>(color(0.5, 0.5, 0.5));
+	world.add(make_shared<sphere>(point3(0, -1000, 0), 1000, ground_material));
+
+	for (int a = -11; a < 11; a++) {
+		for (int b = -11; b < 11; b++) {
+			auto choose_mat = randomDouble();
+			point3 center(a + 0.9 * randomDouble(), 0.2, b + 0.9 * randomDouble());
+
+			if ((center - point3(4, 0.2, 0)).length() > 0.9) {
+				shared_ptr<material> sphere_material;
+
+				if (choose_mat < 0.8) {
+					// diffuse
+					auto albedo = randomVec3() * randomVec3();
+					sphere_material = make_shared<lambertian>(albedo);
+					world.add(make_shared<sphere>(center, 0.2, sphere_material));
+				}
+				else if (choose_mat < 0.95) {
+					// metal
+					auto albedo = randomVec3(0.5, 1);
+					auto fuzz = randomDouble(0, 0.5);
+					sphere_material = make_shared<metal>(albedo, fuzz);
+					world.add(make_shared<sphere>(center, 0.2, sphere_material));
+				}
+				else {
+					// glass
+					sphere_material = make_shared<dielectric>(1.5);
+					world.add(make_shared<sphere>(center, 0.2, sphere_material));
+				}
+			}
+		}
+	}
+
+	auto material1 = make_shared<dielectric>(1.5);
+	world.add(make_shared<sphere>(point3(0, 1, 0), 1.0, material1));
+
+	auto material2 = make_shared<lambertian>(color(0.4, 0.2, 0.1));
+	world.add(make_shared<sphere>(point3(-4, 1, 0), 1.0, material2));
+
+	auto material3 = make_shared<metal>(color(0.7, 0.6, 0.5), 0.0);
+	world.add(make_shared<sphere>(point3(4, 1, 0), 1.0, material3));
+
+	m_World = world;
+
+	// camera
+	point3 lookfrom(13, 2, 3);
+	point3 lookat(0, 0, 0);
+	vec3 vup(0, 1, 0);
+	auto dist_to_focus = 10.0;
+	auto aperture = 0.1;
+	auto aspect_ratio = 16.0 / 9.0;
+
+	camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture, dist_to_focus);
+
+	m_Camera = cam;
+}
