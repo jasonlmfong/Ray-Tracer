@@ -12,9 +12,10 @@ public:
         double vfov, // vertical field-of-view in degrees
         double aspect_ratio,
         double aperture,
-        double focus_dist
+        double focus_dist,
+        double _time0,
+        double _time1
     );
-    
 
     Ray getRay(double s, double t) const;
 
@@ -25,5 +26,6 @@ private:
     vec3 vertical;
     vec3 u, v, w;
     double lens_radius;
+    double time0, time1; // shutter open/close times
 };
 #endif

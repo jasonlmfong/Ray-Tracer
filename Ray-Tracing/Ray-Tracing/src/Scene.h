@@ -8,6 +8,7 @@ public:
 	Scene();
 	void BuildScene1();
 	void BuildScene2();
+	void BuildScene3();
 
 	HittableList m_World;
 	Camera m_Camera;

@@ -8,7 +8,7 @@ bool Lambertian::scatter(const Ray& r_in, const hitRecord& rec, Color& attenuati
     if (scatter_direction.nearZero())
         scatter_direction = rec.normal;
 
-    scattered = Ray(rec.p, scatter_direction);
+    scattered = Ray(rec.p, scatter_direction, r_in.GetTime());
     attenuation = albedo;
     return true;
 }
@@ -16,7 +16,7 @@ bool Lambertian::scatter(const Ray& r_in, const hitRecord& rec, Color& attenuati
 bool Metal::scatter(const Ray& r_in, const hitRecord& rec, Color& attenuation, Ray& scattered) const
 {
     vec3 reflected = reflect(unitVector(r_in.GetDirection()), rec.normal);
-    scattered = Ray(rec.p, reflected + fuzz * randomInUnitCube());
+    scattered = Ray(rec.p, reflected + fuzz * randomInUnitCube(), r_in.GetTime());
     attenuation = albedo;
     return (dot(scattered.GetDirection(), rec.normal) > 0);
 }
@@ -38,7 +38,7 @@ bool Dielectric::scatter(const Ray& r_in, const hitRecord& rec, Color& attenuati
     else
         direction = refract(unit_direction, rec.normal, refraction_ratio);
 
-    scattered = Ray(rec.p, direction);
+    scattered = Ray(rec.p, direction, r_in.GetTime());
     return true;
 }
 

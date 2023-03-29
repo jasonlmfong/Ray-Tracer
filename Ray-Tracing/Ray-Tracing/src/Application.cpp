@@ -21,8 +21,9 @@ int main() {
 
     // Build scene
     Scene scene;
-    scene.BuildScene1();
+    //scene.BuildScene1();
     //scene.BuildScene2();
+    scene.BuildScene3();
 
     // Render
 
