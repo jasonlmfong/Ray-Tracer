@@ -9,12 +9,12 @@ MovingSphere::MovingSphere(Point3 cen0, Point3 cen1, double _time0, double _time
 {
 }
 
-bool MovingSphere::hit(const Ray& r, double t_min, double t_max, hitRecord& rec) const 
+bool MovingSphere::Hit(const Ray& r, double t_min, double t_max, hitRecord& rec) const 
 {
-    vec3 oc = r.GetOrigin() - center(r.GetTime());
-    auto a = r.GetDirection().lengthSquared();
-    auto half_b = dot(oc, r.GetDirection());
-    auto c = oc.lengthSquared() - radius * radius;
+    Vec3 oc = r.GetOrigin() - GetCenter(r.GetTime());
+    auto a = r.GetDirection().LengthSquared();
+    auto half_b = Dot(oc, r.GetDirection());
+    auto c = oc.LengthSquared() - radius * radius;
 
     auto discriminant = half_b * half_b - a * c;
     if (discriminant < 0) return false;
@@ -30,13 +30,13 @@ bool MovingSphere::hit(const Ray& r, double t_min, double t_max, hitRecord& rec)
 
     rec.t = root;
     rec.p = r.GetPosAtDir(rec.t);
-    auto outward_normal = (rec.p - center(r.GetTime())) / radius;
-    rec.setFaceNormal(r, outward_normal);
+    auto outward_normal = (rec.p - GetCenter(r.GetTime())) / radius;
+    rec.SetFaceNormal(r, outward_normal);
     rec.mat_ptr = mat_ptr;
 
     return true;
 }
 
-Point3 MovingSphere::center(double time) const {
+Point3 MovingSphere::GetCenter(double time) const {
     return center0 + ((time - time0) / (time1 - time0)) * (center1 - center0);
 }

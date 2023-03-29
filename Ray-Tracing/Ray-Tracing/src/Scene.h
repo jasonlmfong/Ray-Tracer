@@ -1,7 +1,10 @@
 #pragma once
 
-#include "HittableList.h"
 #include "Camera.h"
+#include "objects/HittableList.h"
+#include "objects/Material.h"
+#include "objects/Sphere.h"
+#include "objects/MovingSphere.h"
 
 class Scene {
 public:

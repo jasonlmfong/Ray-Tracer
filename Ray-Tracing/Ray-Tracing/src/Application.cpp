@@ -1,11 +1,6 @@
 #include "Utils.h"
-
-#include "Camera.h"
-#include "HittableList.h"
-#include "Sphere.h"
-#include "Material.h"
+#include "objects/RayTracer.h"
 #include "Scene.h"
-#include "RayTracer.h"
 #include "Renderer.h"
 
 #include <iostream>
@@ -36,10 +31,10 @@ int main() {
         for (int i = 0; i < image_width; ++i) {
             Color pixelColor(0, 0, 0);
             for (int s = 0; s < samples_per_pixel; ++s) {
-                auto u = (i + randomDouble()) / (image_width - 1);
-                auto v = (j + randomDouble()) / (image_height - 1);
+                auto u = (i + RandomDouble()) / (image_width - 1);
+                auto v = (j + RandomDouble()) / (image_height - 1);
 
-                Ray r = scene.m_Camera.getRay(u, v);
+                Ray r = scene.m_Camera.GetRay(u, v);
                 pixelColor += RayColor(r, scene.m_World, max_depth);
             }
             renderer.WriteColors(pixelColor, samples_per_pixel);

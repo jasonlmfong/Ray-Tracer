@@ -8,7 +8,7 @@ class Camera {
 public:
     Camera(Point3 lookfrom,
         Point3 lookat,
-        vec3   vup,
+        Vec3   vup,
         double vfov, // vertical field-of-view in degrees
         double aspect_ratio,
         double aperture,
@@ -17,14 +17,14 @@ public:
         double _time1
     );
 
-    Ray getRay(double s, double t) const;
+    Ray GetRay(double s, double t) const;
 
 private:
     Point3 origin;
     Point3 lower_left_corner;
-    vec3 horizontal;
-    vec3 vertical;
-    vec3 u, v, w;
+    Vec3 horizontal;
+    Vec3 vertical;
+    Vec3 u, v, w;
     double lens_radius;
     double time0, time1; // shutter open/close times
 };

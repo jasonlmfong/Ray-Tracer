@@ -9,12 +9,12 @@ Sphere::Sphere(Point3 cen, double r, shared_ptr<Material> m)
 {
 }
 
-bool Sphere::hit(const Ray& r, double t_min, double t_max, hitRecord& rec) const
+bool Sphere::Hit(const Ray& r, double t_min, double t_max, hitRecord& rec) const
 {
-    vec3 oc = r.GetOrigin() - center;
-    auto a = r.GetDirection().lengthSquared();
-    auto half_b = dot(oc, r.GetDirection());
-    auto c = oc.lengthSquared() - radius * radius;
+    Vec3 oc = r.GetOrigin() - center;
+    auto a = r.GetDirection().LengthSquared();
+    auto half_b = Dot(oc, r.GetDirection());
+    auto c = oc.LengthSquared() - radius * radius;
 
     auto discriminant = half_b * half_b - a * c;
     if (discriminant < 0) return false;
@@ -30,8 +30,8 @@ bool Sphere::hit(const Ray& r, double t_min, double t_max, hitRecord& rec) const
 
     rec.t = root;
     rec.p = r.GetPosAtDir(rec.t);
-    vec3 outward_normal = (rec.p - center) / radius;
-    rec.setFaceNormal(r, outward_normal);
+    Vec3 outward_normal = (rec.p - center) / radius;
+    rec.SetFaceNormal(r, outward_normal);
     rec.mat_ptr = mat_ptr;
 
     return true;

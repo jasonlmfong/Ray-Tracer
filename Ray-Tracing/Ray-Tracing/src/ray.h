@@ -3,22 +3,22 @@
 #define RAY_H
 
 //#include "vendor/glm/ext/vector_double3.hpp"
-#include "vec3.h"
+#include "Vec3.h"
 
 class Ray {
 public:
     Ray();
-    Ray(const vec3& origin, const vec3& direction, double time);
+    Ray(const Vec3& origin, const Vec3& direction, double time);
 
-    vec3 GetOrigin() const;
-    vec3 GetDirection() const;
+    Vec3 GetOrigin() const;
+    Vec3 GetDirection() const;
     double GetTime() const;
 
-    vec3 GetPosAtDir(double t) const;
+    Vec3 GetPosAtDir(double t) const;
 
 private:
-    vec3 m_Orig;
-    vec3 m_Dir;
+    Vec3 m_Orig;
+    Vec3 m_Dir;
     double m_Time;
 };
 
