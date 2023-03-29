@@ -30,19 +30,22 @@
     <ClCompile Include="src\Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Material.cpp">
+    <ClCompile Include="src\objects\Material.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Renderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Sphere.cpp">
+    <ClCompile Include="src\objects\Sphere.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\vec3.cpp">
+    <ClCompile Include="src\Vec3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\MovingSphere.cpp">
+    <ClCompile Include="src\objects\MovingSphere.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\objects\HittableList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -59,19 +62,19 @@
     <ClInclude Include="src\vendor\stb\stb_image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\vec3.h">
+    <ClInclude Include="src\Vec3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Sphere.h">
+    <ClInclude Include="src\objects\Sphere.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Material.h">
+    <ClInclude Include="src\objects\Material.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\HittableList.h">
+    <ClInclude Include="src\objects\HittableList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Hittable.h">
+    <ClInclude Include="src\objects\Hittable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Renderer.h">
@@ -83,10 +86,10 @@
     <ClInclude Include="src\Scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\RayTracer.h">
+    <ClInclude Include="src\objects\RayTracer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\MovingSphere.h">
+    <ClInclude Include="src\objects\MovingSphere.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
