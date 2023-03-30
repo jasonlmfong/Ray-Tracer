@@ -10,7 +10,8 @@ public:
     Sphere();
     Sphere(Point3 cen, double r, shared_ptr<Material> m);
 
-    bool Hit(const Ray& r, double t_min, double t_max, hitRecord& rec) const;
+    virtual bool Hit(const Ray& r, double t_min, double t_max, hitRecord& rec) const override;
+    virtual bool BoundingBox(double time0, double time1, AABB& output_box) const override;
 
 public:
     Point3 center;

@@ -31,7 +31,7 @@ void Renderer::WriteOutput(int imageWidth, int imageHeight) const
 {
     std::ofstream outputFile;
 
-    stbi_write_png("../gallery/next week/SampleScene.png", imageWidth, imageHeight, 3, m_ImageData.data(), imageWidth * 3);
+    stbi_write_png("../gallery/nextWeek/SampleScene.png", imageWidth, imageHeight, 3, m_ImageData.data(), imageWidth * 3);
 
     outputFile.close();
 }

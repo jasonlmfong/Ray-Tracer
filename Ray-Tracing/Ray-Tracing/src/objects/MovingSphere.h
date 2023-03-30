@@ -11,6 +11,7 @@ public:
     MovingSphere(Point3 cen0, Point3 cen1, double _time0, double _time1, double r, shared_ptr<Material> m);
 
     virtual bool Hit(const Ray& r, double t_min, double t_max, hitRecord& rec) const override;
+    virtual bool BoundingBox(double _time0, double _time1, AABB& output_box) const override;
 
     Point3 GetCenter(double time) const;
 

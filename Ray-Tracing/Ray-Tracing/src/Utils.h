@@ -44,4 +44,51 @@ inline double clamp(double x, double min, double max) {
     return x;
 }
 
+inline Vec3 UnitVector(Vec3 v) {
+    return v / v.Length();
+}
+
+inline double RandomDouble() {
+    // Returns a random real in [0,1).
+    return rand() / (RAND_MAX + 1.0);
+}
+
+inline double RandomDouble(double min, double max) {
+    // Returns a random real in [min,max).
+    return min + (max - min) * RandomDouble();
+}
+
+inline static Vec3 RandomVec3() {
+    return Vec3(RandomDouble(), RandomDouble(), RandomDouble());
+}
+
+inline static Vec3 RandomVec3(double min, double max) {
+    return Vec3(RandomDouble(min, max), RandomDouble(min, max), RandomDouble(min, max));
+}
+
+inline Vec3 RandomInUnitCube() {
+    while (true) {
+        auto p = RandomVec3(-1, 1);
+        if (p.LengthSquared() >= 1) continue;
+        return p;
+    }
+}
+
+inline Vec3 RandomUnitVector() {
+    return UnitVector(RandomInUnitCube());
+}
+
+inline Vec3 RandomInUnitDisk() {
+    while (true) {
+        auto p = Vec3(RandomDouble(-1, 1), RandomDouble(-1, 1), 0);
+        if (p.LengthSquared() >= 1) continue;
+        return p;
+    }
+}
+
+inline int RandomInt(int min, int max) {
+    // Returns a random integer in [min,max].
+    return static_cast<int>(RandomDouble(min, max + 1));
+}
+
 #endif

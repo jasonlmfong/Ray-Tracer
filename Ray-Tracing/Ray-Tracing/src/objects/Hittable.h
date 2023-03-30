@@ -5,6 +5,8 @@
 #include "../Ray.h"
 #include "../Utils.h"
 
+#include "AABB.h"
+
 class Material;
 
 struct hitRecord {
@@ -23,6 +25,7 @@ struct hitRecord {
 class Hittable {
 public:
     virtual bool Hit(const Ray& r, double t_min, double t_max, hitRecord& rec) const = 0;
+    virtual bool BoundingBox(double time0, double time1, AABB& output_box) const = 0;
 };
 
 #endif

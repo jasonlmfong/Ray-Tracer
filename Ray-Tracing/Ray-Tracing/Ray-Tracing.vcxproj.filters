@@ -48,6 +48,12 @@
     <ClCompile Include="src\objects\HittableList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\objects\AABB.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\objects\BVH.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Ray.h">
@@ -90,6 +96,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\objects\MovingSphere.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\objects\AABB.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\objects\BVH.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
