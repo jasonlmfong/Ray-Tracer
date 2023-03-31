@@ -4,6 +4,7 @@
 
 #include "../Utils.h"
 #include "Hittable.h"
+#include "Texture.h"
 
 struct hit_record;
 
@@ -15,13 +16,14 @@ class Material {
 
 class Lambertian : public Material {
     public:
-        Lambertian(const Color& a) : albedo(a) {}
+        Lambertian(const Color& a) : albedo(make_shared<SolidColor>(a)) {}
+        Lambertian(shared_ptr<Texture> a) : albedo(a) {}
 
         virtual bool Scatter(
             const Ray& r_in, const hitRecord& rec, Color& attenuation, Ray& Scattered) const override;
 
     public:
-        Color albedo;
+        shared_ptr<Texture> albedo;
 };
 
 class Metal : public Material {

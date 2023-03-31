@@ -17,6 +17,9 @@ public:
     Point3 center;
     double radius;
     shared_ptr<Material> mat_ptr;
+
+private:
+    static void GetSphereUV(const Point3& p, double& u, double& v);
 };
 
 #endif

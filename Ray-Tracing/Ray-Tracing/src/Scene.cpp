@@ -109,13 +109,13 @@ void Scene::BuildScene2() {
 	m_Camera = cam;
 }
 
-// "next week" bouncing balls
+// "next week" bouncing balls with checkered ground
 void Scene::BuildScene3() {
 	// world
 	HittableList world;
 
-	auto ground_material = make_shared<Lambertian>(Color(0.5, 0.5, 0.5));
-	world.Add(make_shared<Sphere>(Point3(0, -1000, 0), 1000, ground_material));
+	shared_ptr<Texture> checker = make_shared<CheckerTexture>(Color(1.0, 0.0, 1.0), Color(0.0, 0.0, 0.0));
+	world.Add(make_shared<Sphere>(Point3(0, -1000, 0), 1000, make_shared<Lambertian>(checker)));
 
 	for (int a = -11; a < 11; a++) {
 		for (int b = -11; b < 11; b++) {
@@ -156,6 +156,31 @@ void Scene::BuildScene3() {
 
 	auto material3 = make_shared<Metal>(Color(0.7, 0.6, 0.5), 0.0);
 	world.Add(make_shared<Sphere>(Point3(4, 1, 0), 1.0, material3));
+
+	m_World = world;
+
+	// camera
+	Point3 lookfrom(13, 2, 3);
+	Point3 lookat(0, 0, 0);
+	Vec3 vup(0, 1, 0);
+	auto dist_to_focus = 10.0;
+	auto aperture = 0.1;
+	auto aspect_ratio = 16.0 / 9.0;
+
+	Camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture, dist_to_focus, 0.0, 1.0);
+
+	m_Camera = cam;
+}
+
+// "next week" two checkered spheres scene
+void Scene::BuildScene4() {
+	// world
+	HittableList world;
+
+	auto checker = make_shared<CheckerTexture>(Color(1.0, 0.0, 1.0), Color(0.0, 0.0, 0.0));
+
+	world.Add(make_shared<Sphere>(Point3(0, -10, 0), 10, make_shared<Lambertian>(checker)));
+	world.Add(make_shared<Sphere>(Point3(0, 10, 0), 10, make_shared<Lambertian>(checker)));
 
 	m_World = world;
 
