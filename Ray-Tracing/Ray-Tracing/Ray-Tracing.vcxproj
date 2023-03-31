@@ -144,6 +144,7 @@
     <ClCompile Include="src\objects\HittableList.cpp" />
     <ClCompile Include="src\objects\Material.cpp" />
     <ClCompile Include="src\objects\MovingSphere.cpp" />
+    <ClCompile Include="src\objects\Texture.cpp" />
     <ClCompile Include="src\Ray.cpp" />
     <ClCompile Include="src\Renderer.cpp" />
     <ClCompile Include="src\Scene.cpp" />
@@ -156,6 +157,7 @@
     <ClInclude Include="src\objects\AABB.h" />
     <ClInclude Include="src\objects\BVH.h" />
     <ClInclude Include="src\objects\MovingSphere.h" />
+    <ClInclude Include="src\objects\Texture.h" />
     <ClInclude Include="src\Renderer.h" />
     <ClInclude Include="src\objects\Hittable.h" />
     <ClInclude Include="src\objects\HittableList.h" />

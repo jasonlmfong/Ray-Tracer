@@ -5,6 +5,10 @@
 
 #include <iostream>
 
+//recording time
+#include <chrono>
+using namespace std::chrono;
+
 int main() {
 
     // Image
@@ -18,10 +22,13 @@ int main() {
     Scene scene;
     //scene.BuildScene1();
     //scene.BuildScene2();
-    scene.BuildScene3();
+    //scene.BuildScene3();
+    scene.BuildScene4();
+
+    // Recording the timestamp at the start of the code
+    auto beg = high_resolution_clock::now();
 
     // Render
-
     Renderer renderer(image_width, image_height);
 
     std::cout << "image width: " << image_width << "\n" << "image height: " << image_height << std::endl;
@@ -40,9 +47,18 @@ int main() {
             renderer.WriteColors(pixelColor, samples_per_pixel);
         }
     }
+    std::cout << "\nWriting output file \n";
     renderer.WriteOutput(image_width, image_height);
 
-    std::cerr << "\nDone.\n";
+    // Taking a timestamp after the code is ran
+    auto end = high_resolution_clock::now();
+
+    auto duration = duration_cast<microseconds>(end - beg);
+
+    // Displaying the elapsed time
+    std::cout << "Elapsed Time: " << duration.count() << " ms\n";
+
+    std::cerr << "Done.\n";
 
     return 0;
 }
