@@ -12,9 +12,11 @@ public:
 
     double Noise(const Point3& p) const;
 
+    double Turbulence(const Point3& p, int depth = 7) const;
+
 private:
     static const int m_PointCount = 256;
-    double* m_RanFloat;
+    Vec3* m_RanVec;
     int* m_PermX;
     int* m_PermY;
     int* m_PermZ;
@@ -23,7 +25,7 @@ private:
 
     static void Permute(int* p, int n);
 
-    static double TrilinearInterp(double c[2][2][2], double u, double v, double w);
+    static double PerlinInterp(Vec3 c[2][2][2], double u, double v, double w);
 };
 
 #endif

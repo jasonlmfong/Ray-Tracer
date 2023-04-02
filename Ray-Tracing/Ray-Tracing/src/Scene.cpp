@@ -202,12 +202,11 @@ void Scene::BuildScene5() {
 	// world
 	HittableList world;
 
-	auto perText = make_shared<NoiseTexture>();
-	auto smoothPerText = make_shared<SmoothNoiseTexture>(4);
+	auto smoothPerText = make_shared<SmoothNoiseTexture>(4); // new perlin noise marble textures
 
 	world.Add(make_shared<Sphere>(Point3(0, -1000, 0), 1000, make_shared<Lambertian>(smoothPerText)));
-	world.Add(make_shared<Sphere>(Point3(1, 3, -2), 2, make_shared<Lambertian>(smoothPerText)));
-	world.Add(make_shared<Sphere>(Point3(-1, 1, 0), 2, make_shared<Lambertian>(perText)));
+	world.Add(make_shared<Sphere>(Point3(1, 2.5, -2), 2, make_shared<Lambertian>(smoothPerText)));
+	world.Add(make_shared<Sphere>(Point3(-1, 1, 2), 2, make_shared<Lambertian>(smoothPerText)));
 
 	m_World = world;
 

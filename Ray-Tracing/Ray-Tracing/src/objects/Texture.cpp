@@ -62,5 +62,5 @@ SmoothNoiseTexture::SmoothNoiseTexture(double sc)
 
 Color SmoothNoiseTexture::GetValue(double u, double v, const Point3& p) const
 {
-    return Color(1, 1, 1) * m_Noise.Noise(m_Scale * p);
+    return Color(1, 1, 1) * 0.5 * (1 + sin(m_Scale * p.z() + 10 * m_Noise.Turbulence(p)));
 }
