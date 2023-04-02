@@ -3,6 +3,8 @@
 #define TEXTURE_H
 
 #include "../Utils.h"
+#include "../Perlin.h"
+#include "../SmoothPerlin.h"
 
 class Texture {
 public:
@@ -35,6 +37,28 @@ public:
 public:
     shared_ptr<Texture> odd;
     shared_ptr<Texture> even;
+};
+
+class NoiseTexture : public Texture {
+public:
+    NoiseTexture();
+
+    virtual Color GetValue(double u, double v, const Point3& p) const override;
+
+public:
+    Perlin m_Noise;
+};
+
+class SmoothNoiseTexture : public Texture {
+public:
+    SmoothNoiseTexture();
+    SmoothNoiseTexture(double sc);
+
+    virtual Color GetValue(double u, double v, const Point3& p) const override;
+
+public:
+    SmoothPerlin m_Noise;
+    double m_Scale;
 };
 
 #endif

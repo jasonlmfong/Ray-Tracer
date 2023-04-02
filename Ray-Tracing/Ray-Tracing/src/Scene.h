@@ -14,6 +14,7 @@ public:
 	void BuildScene2();
 	void BuildScene3();
 	void BuildScene4();
+	void BuildScene5();
 
 	HittableList m_World;
 	Camera m_Camera;

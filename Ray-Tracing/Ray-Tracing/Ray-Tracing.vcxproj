@@ -145,10 +145,12 @@
     <ClCompile Include="src\objects\Material.cpp" />
     <ClCompile Include="src\objects\MovingSphere.cpp" />
     <ClCompile Include="src\objects\Texture.cpp" />
+    <ClCompile Include="src\Perlin.cpp" />
     <ClCompile Include="src\Ray.cpp" />
     <ClCompile Include="src\Renderer.cpp" />
     <ClCompile Include="src\Scene.cpp" />
     <ClCompile Include="src\objects\Sphere.cpp" />
+    <ClCompile Include="src\SmoothPerlin.cpp" />
     <ClCompile Include="src\Vec3.cpp" />
     <ClCompile Include="src\vendor\stb\stb_image_write.cpp" />
   </ItemGroup>
@@ -158,6 +160,7 @@
     <ClInclude Include="src\objects\BVH.h" />
     <ClInclude Include="src\objects\MovingSphere.h" />
     <ClInclude Include="src\objects\Texture.h" />
+    <ClInclude Include="src\Perlin.h" />
     <ClInclude Include="src\Renderer.h" />
     <ClInclude Include="src\objects\Hittable.h" />
     <ClInclude Include="src\objects\HittableList.h" />
@@ -166,6 +169,7 @@
     <ClInclude Include="src\objects\RayTracer.h" />
     <ClInclude Include="src\Scene.h" />
     <ClInclude Include="src\objects\Sphere.h" />
+    <ClInclude Include="src\SmoothPerlin.h" />
     <ClInclude Include="src\Utils.h" />
     <ClInclude Include="src\Vec3.h" />
     <ClInclude Include="src\vendor\stb\stb_image.h" />

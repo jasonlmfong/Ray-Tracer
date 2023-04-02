@@ -196,3 +196,30 @@ void Scene::BuildScene4() {
 
 	m_Camera = cam;
 }
+
+// "next week" 3 perlin spheres scene (not same sized)
+void Scene::BuildScene5() {
+	// world
+	HittableList world;
+
+	auto perText = make_shared<NoiseTexture>();
+	auto smoothPerText = make_shared<SmoothNoiseTexture>(4);
+
+	world.Add(make_shared<Sphere>(Point3(0, -1000, 0), 1000, make_shared<Lambertian>(smoothPerText)));
+	world.Add(make_shared<Sphere>(Point3(1, 3, -2), 2, make_shared<Lambertian>(smoothPerText)));
+	world.Add(make_shared<Sphere>(Point3(-1, 1, 0), 2, make_shared<Lambertian>(perText)));
+
+	m_World = world;
+
+	// camera
+	Point3 lookfrom(13, 2, 3);
+	Point3 lookat(0, 0, 0);
+	Vec3 vup(0, 1, 0);
+	auto dist_to_focus = 10.0;
+	auto aperture = 0.1;
+	auto aspect_ratio = 16.0 / 9.0;
+
+	Camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture, dist_to_focus, 0.0, 1.0);
+
+	m_Camera = cam;
+}

@@ -41,3 +41,26 @@ Color CheckerTexture::GetValue(double u, double v, const Point3& p) const
     else
         return even->GetValue(u, v, p);
 }
+
+NoiseTexture::NoiseTexture()
+{
+}
+
+Color NoiseTexture::GetValue(double u, double v, const Point3& p) const
+{
+    return Color(1, 1, 1) * m_Noise.Noise(p);
+}
+
+SmoothNoiseTexture::SmoothNoiseTexture()
+{
+}
+
+SmoothNoiseTexture::SmoothNoiseTexture(double sc)
+    : m_Scale(sc) 
+{
+}
+
+Color SmoothNoiseTexture::GetValue(double u, double v, const Point3& p) const
+{
+    return Color(1, 1, 1) * m_Noise.Noise(m_Scale * p);
+}
