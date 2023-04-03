@@ -16,7 +16,11 @@ public:
 	void BuildScene4();
 	void BuildScene5();
 	void BuildScene6();
+	void BuildScene7();
 
+public:
 	HittableList m_World;
 	Camera m_Camera;
+	Color m_Background;
+	bool m_RayColorFcn;
 };

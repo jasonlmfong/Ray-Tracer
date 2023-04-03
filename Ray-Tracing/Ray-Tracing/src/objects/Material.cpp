@@ -1,5 +1,10 @@
 #include "Material.h"
 
+Color Material::Emitted(double u, double v, const Point3& p) const
+{
+    return Color(0, 0, 0);
+}
+
 bool Lambertian::Scatter(const Ray& r_in, const hitRecord& rec, Color& attenuation, Ray& scattered) const
 {
     auto scatter_direction = rec.normal + RandomUnitVector();
@@ -48,4 +53,24 @@ double Dielectric::Reflectance(double cosine, double ref_idx)
     auto r0 = (1 - ref_idx) / (1 + ref_idx);
     r0 = r0 * r0;
     return r0 + (1 - r0) * pow((1 - cosine), 5);
+}
+
+DiffuseLight::DiffuseLight(shared_ptr<Texture> a)
+    : m_Emit(a)
+{
+}
+
+DiffuseLight::DiffuseLight(Color c)
+    : m_Emit(make_shared<SolidColor>(c))
+{
+}
+
+bool DiffuseLight::Scatter(const Ray& r_in, const hitRecord& rec, Color& attenuation, Ray& scattered) const
+{
+    return false;
+}
+
+Color DiffuseLight::Emitted(double u, double v, const Point3& p) const
+{
+    return m_Emit->GetValue(u, v, p);
 }
