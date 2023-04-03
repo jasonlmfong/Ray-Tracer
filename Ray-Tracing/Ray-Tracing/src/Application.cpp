@@ -25,8 +25,8 @@ int main() {
     //scene.BuildScene3(); // book 1 cover with moving spheres and checkered floor
     //scene.BuildScene4(); // checkered spheres
     //scene.BuildScene5(); // marble
-    scene.BuildScene6(); // earth and marble
-    //scene.BuildScene7(); // earth and sun
+    //scene.BuildScene6(); // earth and marble
+    scene.BuildScene7(); // earth and sun
 
     // Recording the timestamp at the start of the code
     auto beg = high_resolution_clock::now();
@@ -48,10 +48,7 @@ int main() {
                 auto v = (j + RandomDouble()) / (image_height - 1);
 
                 Ray r = scene.m_Camera.GetRay(u, v);
-                if (scene.m_RayColorFcn)
-                    pixelColor += RayColor2(r, scene.m_Background, scene.m_World, max_depth);
-                else
-                    pixelColor += RayColor1(r, scene.m_World, max_depth);
+                pixelColor += RayColor(r, scene.m_Background, scene.m_World, max_depth);
             }
             renderer.WriteColors(pixelColor, samples_per_pixel);
         }

@@ -22,5 +22,4 @@ public:
 	HittableList m_World;
 	Camera m_Camera;
 	Color m_Background;
-	bool m_RayColorFcn;
 };

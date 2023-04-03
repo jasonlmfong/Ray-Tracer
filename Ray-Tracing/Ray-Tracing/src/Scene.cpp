@@ -19,7 +19,6 @@ void Scene::BuildScene1() {
 	// world
 	HittableList world;
 	m_Background = Color(0.70, 0.80, 1.00);
-	m_RayColorFcn = false;
 
 	auto material_ground = make_shared<Lambertian>(Color(0.8, 0.8, 0.0));
 	auto material_center = make_shared<Lambertian>(Color(0.7, 0.3, 0.3));
@@ -54,7 +53,6 @@ void Scene::BuildScene2() {
 	// world
 	HittableList world;
 	m_Background = Color(0.70, 0.80, 1.00);
-	m_RayColorFcn = false;
 
 	auto ground_material = make_shared<Lambertian>(Color(0.5, 0.5, 0.5));
 	world.Add(make_shared<Sphere>(Point3(0, -1000, 0), 1000, ground_material));
@@ -118,7 +116,6 @@ void Scene::BuildScene3() {
 	// world
 	HittableList world;
 	m_Background = Color(0.70, 0.80, 1.00);
-	m_RayColorFcn = false;
 
 	shared_ptr<Texture> checker = make_shared<CheckerTexture>(Color(1.0, 0.0, 1.0), Color(0.0, 0.0, 0.0));
 	world.Add(make_shared<Sphere>(Point3(0, -1000, 0), 1000, make_shared<Lambertian>(checker)));
@@ -183,7 +180,6 @@ void Scene::BuildScene4() {
 	// world
 	HittableList world;
 	m_Background = Color(0.70, 0.80, 1.00);
-	m_RayColorFcn = false;
 
 	auto checker = make_shared<CheckerTexture>(Color(1.0, 0.0, 1.0), Color(0.0, 0.0, 0.0));
 
@@ -210,7 +206,6 @@ void Scene::BuildScene5() {
 	// world
 	HittableList world;
 	m_Background = Color(0.70, 0.80, 1.00);
-	m_RayColorFcn = false;
 
 	auto smoothPerText = make_shared<SmoothNoiseTexture>(4); // new perlin noise marble textures
 
@@ -237,8 +232,7 @@ void Scene::BuildScene5() {
 void Scene::BuildScene6() {
 	// world
 	HittableList world;
-	m_Background = Color(0.0, 0.0, 0.0);
-	m_RayColorFcn = false;
+	m_Background = Color(0.70, 0.80, 1.00);
 
 	auto smoothPerText = make_shared<SmoothNoiseTexture>(4); // new perlin noise marble textures
 	auto earthTexture = make_shared<ImageTexture>("res/textures/earthmap.jpg");
@@ -266,7 +260,6 @@ void Scene::BuildScene7() {
 	// world
 	HittableList world;
 	m_Background = Color(0.0, 0.0, 0.0);
-	m_RayColorFcn = true;
 
 	auto smoothPerText = make_shared<SmoothNoiseTexture>(4); // new perlin noise marble textures
 	auto earthTexture = make_shared<ImageTexture>("res/textures/earthmap.jpg");
