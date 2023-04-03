@@ -152,6 +152,7 @@
     <ClCompile Include="src\objects\Sphere.cpp" />
     <ClCompile Include="src\SmoothPerlin.cpp" />
     <ClCompile Include="src\Vec3.cpp" />
+    <ClCompile Include="src\vendor\stb\stb_image.cpp" />
     <ClCompile Include="src\vendor\stb\stb_image_write.cpp" />
   </ItemGroup>
   <ItemGroup>

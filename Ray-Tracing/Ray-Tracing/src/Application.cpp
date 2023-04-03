@@ -24,7 +24,8 @@ int main() {
     //scene.BuildScene2();
     //scene.BuildScene3();
     //scene.BuildScene4();
-    scene.BuildScene5();
+    //scene.BuildScene5();
+    scene.BuildScene6();
 
     // Recording the timestamp at the start of the code
     auto beg = high_resolution_clock::now();

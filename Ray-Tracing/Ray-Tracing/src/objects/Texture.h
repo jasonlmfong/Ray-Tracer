@@ -5,6 +5,10 @@
 #include "../Utils.h"
 #include "../Perlin.h"
 #include "../SmoothPerlin.h"
+#include "../vendor/stb/stb_image.h"
+#include "../vendor/stb/stb_image_write.h"
+
+#include <iostream>
 
 class Texture {
 public:
@@ -59,6 +63,24 @@ public:
 public:
     SmoothPerlin m_Noise;
     double m_Scale;
+};
+
+class ImageTexture : public Texture {
+public:
+    const static int bytesPerPixel = 3;
+
+    ImageTexture();
+
+    ImageTexture(const char* filename);
+
+    ~ImageTexture();
+
+    virtual Color GetValue(double u, double v, const Vec3& p) const override;
+
+private:
+    unsigned char* m_Data;
+    int m_Width, m_Height;
+    int bytesPerScanline;
 };
 
 #endif
