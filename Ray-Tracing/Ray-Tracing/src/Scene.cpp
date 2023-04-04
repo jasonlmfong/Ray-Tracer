@@ -255,7 +255,7 @@ void Scene::BuildScene6() {
 	m_Camera = cam;
 }
 
-// "next week" earth on perlin ground
+// "next week" earth on perlin ground with sun
 void Scene::BuildScene7() {
 	// world
 	HittableList world;
@@ -280,6 +280,71 @@ void Scene::BuildScene7() {
 	auto aspect_ratio = 16.0 / 9.0;
 
 	Camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture, dist_to_focus, 0.0, 1.0);
+
+	m_Camera = cam;
+}
+
+// "next week" earth on perlin ground with two light spheres and a light portal
+void Scene::BuildScene8() {
+	// world
+	HittableList world;
+	m_Background = Color(0.0, 0.0, 0.0);
+
+	auto smoothPerText = make_shared<SmoothNoiseTexture>(4); // new perlin noise marble textures
+	auto earthTexture = make_shared<ImageTexture>("res/textures/earthmap.jpg");
+	auto lightMaterial = make_shared<DiffuseLight>(Color(1.0, 1.0, 1.0));
+
+	world.Add(make_shared<Sphere>(Point3(0, -1000, 0), 1000, make_shared<Lambertian>(smoothPerText)));
+	world.Add(make_shared<Sphere>(Point3(-1, 1, 0), 2, make_shared<Lambertian>(earthTexture)));
+	world.Add(make_shared<Sphere>(Point3(-3, 2.5, 3), 1, lightMaterial));
+	world.Add(make_shared<Sphere>(Point3(7, 6, 5), 3, lightMaterial));
+	world.Add(make_shared<XYRect>(-3, 1, 0.5, 2.5, -3, lightMaterial));
+
+	m_World = world;
+
+	// camera
+	Point3 lookfrom(26, 3, 6);
+	Point3 lookat(0, 2, 0);
+	Vec3 vup(0, 1, 0);
+	auto dist_to_focus = 10.0;
+	auto aperture = 0.1;
+	auto aspect_ratio = 16.0 / 9.0;
+
+	Camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture, dist_to_focus, 0.0, 1.0);
+
+	m_Camera = cam;
+}
+
+// "next week" Cornell box
+void Scene::BuildScene9() {
+	// world
+	HittableList world;
+	m_Background = Color(0.0, 0.0, 0.0);
+
+	auto red   = make_shared<Lambertian>(Color(0.65, 0.05, 0.05));
+	auto white = make_shared<Lambertian>(Color(0.73, 0.73, 0.73));
+	auto green = make_shared<Lambertian>(Color(0.12, 0.45, 0.15));
+	auto light = make_shared<DiffuseLight>(Color(1.0, 1.0, 1.0));
+
+	world.Add(make_shared<YZRect>(0, 555, 0, 555, 555, green));
+	world.Add(make_shared<YZRect>(0, 555, 0, 555, 0, red));
+	world.Add(make_shared<XZRect>(127, 427, 127, 427, 554, light));
+	world.Add(make_shared<XZRect>(0, 555, 0, 555, 0, white));
+	world.Add(make_shared<XYRect>(0, 555, 0, 555, 555, white));
+	world.Add(make_shared<XYRect>(0, 555, 0, 555, 555, white));
+
+	m_World = world;
+
+	// camera
+	Point3 lookfrom(278, 278, -800);
+	Point3 lookat(278, 278, 0);
+	Vec3 vup(0, 1, 0);
+	auto dist_to_focus = 10.0;
+	auto aperture = 0.1;
+	m_AspectRatio = 1.0;
+	auto vfov = 40.0;
+
+	Camera cam(lookfrom, lookat, vup, vfov, m_AspectRatio, aperture, dist_to_focus, 0.0, 1.0);
 
 	m_Camera = cam;
 }

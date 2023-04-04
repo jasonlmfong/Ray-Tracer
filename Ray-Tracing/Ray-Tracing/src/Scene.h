@@ -5,6 +5,7 @@
 #include "objects/Material.h"
 #include "objects/Sphere.h"
 #include "objects/MovingSphere.h"
+#include "objects/AARect.h"
 
 class Scene {
 public:
@@ -17,9 +18,12 @@ public:
 	void BuildScene5();
 	void BuildScene6();
 	void BuildScene7();
+	void BuildScene8();
+	void BuildScene9();
 
 public:
 	HittableList m_World;
 	Camera m_Camera;
 	Color m_Background;
+	double m_AspectRatio;
 };

@@ -11,13 +11,6 @@ using namespace std::chrono;
 
 int main() {
 
-    // Image
-    const auto aspect_ratio = 16.0 / 9.0;
-    const int image_width = 400;
-    const int image_height = static_cast<int>(image_width / aspect_ratio);
-    const int samples_per_pixel = 100;
-    const int max_depth = 50;
-
     // Build scene
     Scene scene;
     //scene.BuildScene1(); // 3 balls with depth of field
@@ -26,10 +19,18 @@ int main() {
     //scene.BuildScene4(); // checkered spheres
     //scene.BuildScene5(); // marble
     //scene.BuildScene6(); // earth and marble
-    scene.BuildScene7(); // earth and sun
+    //scene.BuildScene7(); // earth and sun
+    //scene.BuildScene8(); // earth and suns and portal
+    scene.BuildScene9(); // Cornell box
+
+    // Image
+    const int image_width = 400;
+    const int image_height = static_cast<int>(image_width / scene.m_AspectRatio);
+    const int samples_per_pixel = 100;
+    const int max_depth = 50;
 
     // Recording the timestamp at the start of the code
-    auto beg = high_resolution_clock::now();
+    auto begin = high_resolution_clock::now();
 
     // Render
     Renderer renderer(image_width, image_height);
@@ -59,7 +60,7 @@ int main() {
     // Taking a timestamp after the code is ran
     auto end = high_resolution_clock::now();
 
-    auto duration = duration_cast<microseconds>(end - beg);
+    auto duration = duration_cast<microseconds>(end - begin);
 
     // Displaying the elapsed time
     std::cout << "Elapsed Time: " << duration.count() << " ms\n";
