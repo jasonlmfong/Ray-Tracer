@@ -21,7 +21,7 @@ bool Lambertian::Scatter(const Ray& r_in, const hitRecord& rec, Color& attenuati
 bool Metal::Scatter(const Ray& r_in, const hitRecord& rec, Color& attenuation, Ray& scattered) const
 {
     Vec3 reflected = reflect(UnitVector(r_in.GetDirection()), rec.normal);
-    scattered = Ray(rec.p, reflected + fuzz * RandomInUnitCube(), r_in.GetTime());
+    scattered = Ray(rec.p, reflected + fuzz * RandomUnitVector(), r_in.GetTime());
     attenuation = albedo;
     return (Dot(scattered.GetDirection(), rec.normal) > 0);
 }
@@ -73,4 +73,21 @@ bool DiffuseLight::Scatter(const Ray& r_in, const hitRecord& rec, Color& attenua
 Color DiffuseLight::Emitted(double u, double v, const Point3& p) const
 {
     return m_Emit->GetValue(u, v, p);
+}
+
+Isotropic::Isotropic(Color c)
+    : albedo(make_shared<SolidColor>(c))
+{
+}
+
+Isotropic::Isotropic(shared_ptr<Texture> a)
+    : albedo(a) 
+{
+}
+
+bool Isotropic::Scatter(const Ray& r_in, const hitRecord& rec, Color& attenuation, Ray& scattered) const
+{
+    scattered = Ray(rec.p, RandomUnitVector(), r_in.GetTime());
+    attenuation = albedo->GetValue(rec.u, rec.v, rec.p);
+    return true;
 }

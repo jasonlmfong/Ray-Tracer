@@ -143,6 +143,7 @@
     <ClCompile Include="src\objects\AARect.cpp" />
     <ClCompile Include="src\objects\Box.cpp" />
     <ClCompile Include="src\objects\BVH.cpp" />
+    <ClCompile Include="src\objects\ConstantMedium.cpp" />
     <ClCompile Include="src\objects\HittableList.cpp" />
     <ClCompile Include="src\objects\Material.cpp" />
     <ClCompile Include="src\objects\MovingSphere.cpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="src\objects\Box.h" />
     <ClInclude Include="src\objects\BVH.h" />
     <ClInclude Include="src\objects\AARect.h" />
+    <ClInclude Include="src\objects\ConstantMedium.h" />
     <ClInclude Include="src\objects\MovingSphere.h" />
     <ClInclude Include="src\objects\Rotate.h" />
     <ClInclude Include="src\objects\Texture.h" />

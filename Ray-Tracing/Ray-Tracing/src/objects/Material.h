@@ -62,4 +62,15 @@ public:
     shared_ptr<Texture> m_Emit;
 };
 
+class Isotropic : public Material {
+public:
+    Isotropic(Color c);
+    Isotropic(shared_ptr<Texture> a);
+
+    virtual bool Scatter(const Ray& r_in, const hitRecord& rec, Color& attenuation, Ray& scattered) const override;
+
+public:
+    shared_ptr<Texture> albedo;
+};
+
 #endif

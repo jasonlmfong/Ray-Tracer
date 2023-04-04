@@ -67,11 +67,8 @@ inline static Vec3 RandomVec3(double min, double max) {
 }
 
 inline Vec3 RandomInUnitCube() {
-    while (true) {
-        auto p = RandomVec3(-1, 1);
-        if (p.LengthSquared() >= 1) continue;
-        return p;
-    }
+    auto p = RandomVec3(-1, 1);
+    return p;
 }
 
 inline Vec3 RandomUnitVector() {

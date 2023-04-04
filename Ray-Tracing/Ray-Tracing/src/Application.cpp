@@ -22,7 +22,8 @@ int main() {
     //scene.BuildScene7(); // earth and sun
     //scene.BuildScene8(); // earth and suns and portal
     //scene.BuildScene9(); // Cornell box
-    scene.BuildScene10(); // Cornell box with boxes
+    //scene.BuildScene10(); // Cornell box with boxes
+    scene.BuildScene11(); // Cornell box with boxes with smoke
 
     // Image
     const int image_width = 400;
