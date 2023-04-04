@@ -6,6 +6,9 @@
 #include "objects/Sphere.h"
 #include "objects/MovingSphere.h"
 #include "objects/AARect.h"
+#include "objects/Box.h"
+#include "objects/Translate.h"
+#include "objects/Rotate.h"
 
 class Scene {
 public:
@@ -20,6 +23,7 @@ public:
 	void BuildScene7();
 	void BuildScene8();
 	void BuildScene9();
+	void BuildScene10();
 
 public:
 	HittableList m_World;

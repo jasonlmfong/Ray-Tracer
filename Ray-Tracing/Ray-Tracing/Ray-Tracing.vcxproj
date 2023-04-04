@@ -141,11 +141,14 @@
     <ClCompile Include="src\Camera.cpp" />
     <ClCompile Include="src\objects\AABB.cpp" />
     <ClCompile Include="src\objects\AARect.cpp" />
+    <ClCompile Include="src\objects\Box.cpp" />
     <ClCompile Include="src\objects\BVH.cpp" />
     <ClCompile Include="src\objects\HittableList.cpp" />
     <ClCompile Include="src\objects\Material.cpp" />
     <ClCompile Include="src\objects\MovingSphere.cpp" />
+    <ClCompile Include="src\objects\Rotate.cpp" />
     <ClCompile Include="src\objects\Texture.cpp" />
+    <ClCompile Include="src\objects\Translate.cpp" />
     <ClCompile Include="src\Perlin.cpp" />
     <ClCompile Include="src\Ray.cpp" />
     <ClCompile Include="src\Renderer.cpp" />
@@ -159,10 +162,13 @@
   <ItemGroup>
     <ClInclude Include="src\Camera.h" />
     <ClInclude Include="src\objects\AABB.h" />
+    <ClInclude Include="src\objects\Box.h" />
     <ClInclude Include="src\objects\BVH.h" />
     <ClInclude Include="src\objects\AARect.h" />
     <ClInclude Include="src\objects\MovingSphere.h" />
+    <ClInclude Include="src\objects\Rotate.h" />
     <ClInclude Include="src\objects\Texture.h" />
+    <ClInclude Include="src\objects\Translate.h" />
     <ClInclude Include="src\Perlin.h" />
     <ClInclude Include="src\Renderer.h" />
     <ClInclude Include="src\objects\Hittable.h" />

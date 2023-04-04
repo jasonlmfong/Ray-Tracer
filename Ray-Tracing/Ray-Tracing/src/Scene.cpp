@@ -348,3 +348,47 @@ void Scene::BuildScene9() {
 
 	m_Camera = cam;
 }
+
+// "next week" Cornell box with rectanglular boxes
+void Scene::BuildScene10() {
+	// world
+	HittableList world;
+	m_Background = Color(0.0, 0.0, 0.0);
+
+	auto red = make_shared<Lambertian>(Color(0.65, 0.05, 0.05));
+	auto white = make_shared<Lambertian>(Color(0.73, 0.73, 0.73));
+	auto green = make_shared<Lambertian>(Color(0.12, 0.45, 0.15));
+	auto light = make_shared<DiffuseLight>(Color(1.0, 1.0, 1.0));
+
+	world.Add(make_shared<YZRect>(0, 555, 0, 555, 555, green));
+	world.Add(make_shared<YZRect>(0, 555, 0, 555, 0, red));
+	world.Add(make_shared<XZRect>(127, 427, 127, 427, 554, light));
+	world.Add(make_shared<XZRect>(0, 555, 0, 555, 0, white));
+	world.Add(make_shared<XYRect>(0, 555, 0, 555, 555, white));
+	world.Add(make_shared<XYRect>(0, 555, 0, 555, 555, white));
+
+	shared_ptr<Hittable> box1 = make_shared<Box>(Point3(0, 0, 0), Point3(165, 165, 165), white);
+	box1 = make_shared<RotateY>(box1, -18);
+	box1 = make_shared<Translate>(box1, Vec3(130, 0, 65));
+	world.Add(box1);
+
+	shared_ptr<Hittable> box2 = make_shared<Box>(Point3(0, 0, 0), Point3(165, 330, 165), white);
+	box2 = make_shared<RotateY>(box2, 15);
+	box2 = make_shared<Translate>(box2, Vec3(265, 0, 295));
+	world.Add(box2);
+
+	m_World = world;
+
+	// camera
+	Point3 lookfrom(278, 278, -800);
+	Point3 lookat(278, 278, 0);
+	Vec3 vup(0, 1, 0);
+	auto dist_to_focus = 10.0;
+	auto aperture = 0.1;
+	m_AspectRatio = 1.0;
+	auto vfov = 40.0;
+
+	Camera cam(lookfrom, lookat, vup, vfov, m_AspectRatio, aperture, dist_to_focus, 0.0, 1.0);
+
+	m_Camera = cam;
+}
