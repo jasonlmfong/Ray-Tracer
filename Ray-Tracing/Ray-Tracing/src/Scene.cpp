@@ -41,9 +41,9 @@ void Scene::BuildScene1() {
 	Vec3 vup(0, 1, 0);
 	auto dist_to_focus = (lookfrom - lookat).Length();
 	auto aperture = 0.5; // adjust depth of field 
-	auto aspect_ratio = 16.0 / 9.0;
+	m_AspectRatio = 16.0 / 9.0;
 
-	Camera cam(lookfrom, lookat, vup, 45, aspect_ratio, aperture, dist_to_focus, 0, 0);
+	Camera cam(lookfrom, lookat, vup, 45, m_AspectRatio, aperture, dist_to_focus, 0, 0);
 
 	m_Camera = cam;
 }
@@ -104,9 +104,9 @@ void Scene::BuildScene2() {
 	Vec3 vup(0, 1, 0);
 	auto dist_to_focus = 10.0;
 	auto aperture = 0.1;
-	auto aspect_ratio = 16.0 / 9.0;
+	m_AspectRatio = 16.0 / 9.0;
 
-	Camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture, dist_to_focus, 0, 0);
+	Camera cam(lookfrom, lookat, vup, 20, m_AspectRatio, aperture, dist_to_focus, 0, 0);
 
 	m_Camera = cam;
 }
@@ -168,9 +168,9 @@ void Scene::BuildScene3() {
 	Vec3 vup(0, 1, 0);
 	auto dist_to_focus = 10.0;
 	auto aperture = 0.1;
-	auto aspect_ratio = 16.0 / 9.0;
+	m_AspectRatio = 16.0 / 9.0;
 
-	Camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture, dist_to_focus, 0.0, 1.0);
+	Camera cam(lookfrom, lookat, vup, 20, m_AspectRatio, aperture, dist_to_focus, 0.0, 1.0);
 
 	m_Camera = cam;
 }
@@ -194,9 +194,9 @@ void Scene::BuildScene4() {
 	Vec3 vup(0, 1, 0);
 	auto dist_to_focus = 10.0;
 	auto aperture = 0.1;
-	auto aspect_ratio = 16.0 / 9.0;
+	m_AspectRatio = 16.0 / 9.0;
 
-	Camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture, dist_to_focus, 0.0, 1.0);
+	Camera cam(lookfrom, lookat, vup, 20, m_AspectRatio, aperture, dist_to_focus, 0.0, 1.0);
 
 	m_Camera = cam;
 }
@@ -221,9 +221,9 @@ void Scene::BuildScene5() {
 	Vec3 vup(0, 1, 0);
 	auto dist_to_focus = 10.0;
 	auto aperture = 0.1;
-	auto aspect_ratio = 16.0 / 9.0;
+	m_AspectRatio = 16.0 / 9.0;
 
-	Camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture, dist_to_focus, 0.0, 1.0);
+	Camera cam(lookfrom, lookat, vup, 20, m_AspectRatio, aperture, dist_to_focus, 0.0, 1.0);
 
 	m_Camera = cam;
 }
@@ -248,9 +248,9 @@ void Scene::BuildScene6() {
 	Vec3 vup(0, 1, 0);
 	auto dist_to_focus = 10.0;
 	auto aperture = 0.1;
-	auto aspect_ratio = 16.0 / 9.0;
+	m_AspectRatio = 16.0 / 9.0;
 
-	Camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture, dist_to_focus, 0.0, 1.0);
+	Camera cam(lookfrom, lookat, vup, 20, m_AspectRatio, aperture, dist_to_focus, 0.0, 1.0);
 
 	m_Camera = cam;
 }
@@ -277,9 +277,9 @@ void Scene::BuildScene7() {
 	Vec3 vup(0, 1, 0);
 	auto dist_to_focus = 10.0;
 	auto aperture = 0.1;
-	auto aspect_ratio = 16.0 / 9.0;
+	m_AspectRatio = 16.0 / 9.0;
 
-	Camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture, dist_to_focus, 0.0, 1.0);
+	Camera cam(lookfrom, lookat, vup, 20, m_AspectRatio, aperture, dist_to_focus, 0.0, 1.0);
 
 	m_Camera = cam;
 }
@@ -308,9 +308,9 @@ void Scene::BuildScene8() {
 	Vec3 vup(0, 1, 0);
 	auto dist_to_focus = 10.0;
 	auto aperture = 0.1;
-	auto aspect_ratio = 16.0 / 9.0;
+	m_AspectRatio = 16.0 / 9.0;
 
-	Camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture, dist_to_focus, 0.0, 1.0);
+	Camera cam(lookfrom, lookat, vup, 20, m_AspectRatio, aperture, dist_to_focus, 0.0, 1.0);
 
 	m_Camera = cam;
 }
@@ -324,7 +324,7 @@ void Scene::BuildScene9() {
 	auto red   = make_shared<Lambertian>(Color(0.65, 0.05, 0.05));
 	auto white = make_shared<Lambertian>(Color(0.73, 0.73, 0.73));
 	auto green = make_shared<Lambertian>(Color(0.12, 0.45, 0.15));
-	auto light = make_shared<DiffuseLight>(Color(1.0, 1.0, 1.0));
+	auto light = make_shared<DiffuseLight>(Color(15, 15, 15));
 
 	world.Add(make_shared<YZRect>(0, 555, 0, 555, 555, green));
 	world.Add(make_shared<YZRect>(0, 555, 0, 555, 0, red));
@@ -402,7 +402,7 @@ void Scene::BuildScene11() {
 	auto red = make_shared<Lambertian>(Color(0.65, 0.05, 0.05));
 	auto white = make_shared<Lambertian>(Color(0.73, 0.73, 0.73));
 	auto green = make_shared<Lambertian>(Color(0.12, 0.45, 0.15));
-	auto light = make_shared<DiffuseLight>(Color(1.0, 1.0, 1.0));
+	auto light = make_shared<DiffuseLight>(Color(7, 7, 7));
 	auto yellow = make_shared<Lambertian>(Color(0.98, 0.73, 0.02));
 
 	world.Add(make_shared<YZRect>(0, 555, 0, 555, 555, green));
@@ -434,6 +434,87 @@ void Scene::BuildScene11() {
 	auto aperture = 0.1;
 	m_AspectRatio = 1.0;
 	auto vfov = 40.0;
+
+	Camera cam(lookfrom, lookat, vup, vfov, m_AspectRatio, aperture, dist_to_focus, 0.0, 1.0);
+
+	m_Camera = cam;
+}
+
+// "next week" final scene with all features
+void Scene::BuildScene12() {
+	// world
+	HittableList world;
+	
+	// wall of "bricks"
+	HittableList wall;
+	auto blue = make_shared<Lambertian>(Color(0.26, 0.52, 0.96));
+
+	const int boxes_per_side = 20;
+	for (int i = 0; i < boxes_per_side; i++) {
+		for (int j = 0; j < boxes_per_side; j++) {
+			auto w = 100.0;
+			auto x0 = RandomDouble(600, 699);
+			auto y0 = -1000.0 + i * w;
+			auto z0 = -1000.0 + j * w;
+			auto x1 = 700;
+			auto y1 = y0 + w;
+			auto z1 = z0 + w;
+
+			wall.Add(make_shared<Box>(Point3(x0, y0, z0), Point3(x1, y1, z1), blue));
+		}
+	}
+	// add wall to world
+	world.Add(make_shared<BVHNode>(wall, 0, 1)); 
+
+	// rectangular smoke over top of light ball
+	auto white = make_shared<Lambertian>(Color(0.8, 0.8, 0.8));
+	world.Add(make_shared<ConstantMedium>(make_shared<Box>(Point3(95, 200, -80), Point3(255, 250, 80), white), 0.01, Color(1, 1, 1))); 
+	// light ball
+	auto lightMat = make_shared<DiffuseLight>(Color(12, 12, 12));
+	world.Add(make_shared<Sphere>(Point3(175, 200, 0), 75, lightMat)); 
+	
+	// spheres in a cube box
+	HittableList spheres;
+	auto penguinTexture = make_shared<ImageTexture>("res/textures/Penguin.png");
+
+	int numSpheres = 1000;
+	for (int j = 0; j < numSpheres; j++) {
+		spheres.Add(make_shared<Sphere>(Point3(RandomDouble(-25, 75), RandomDouble(-50, 50), RandomDouble(200, 300)), 10, make_shared<Lambertian>(penguinTexture)));
+	}
+	// add spheres in cube to world
+	world.Add(make_shared<RotateX>(make_shared<BVHNode>(spheres, 0.0, 1.0), 45));
+
+	// add glass sphere
+	world.Add(make_shared<Sphere>(Point3(350, -50, -250), 70, make_shared<Dielectric>(1.5)));
+
+	// fuzzy metal box
+	world.Add(make_shared<RotateZ>(make_shared<Box>(Point3(200, -100, 0), Point3(400, 100, 200), make_shared<Metal>(Color(1.0, 0.8, 0.8), 1.0)), 15));
+
+	// shiny metal box
+	world.Add(make_shared<Box>(Point3(50, -150, -150), Point3(150, -50, -100), make_shared<Metal>(Color(0.8, 0.8, 0.8), 0.0)));
+
+	// subsurface material
+	auto boundary = make_shared<RotateY>(make_shared<Box>(Point3(-90, -90, -40), Point3(-10, -10, 40), make_shared<Dielectric>(1.5)), 40);
+	world.Add(boundary);
+	world.Add(make_shared<ConstantMedium>(boundary, 0.2, Color(0.98, 0.76, 0.09)));
+
+	// light ball from behind camera to light up scene
+	auto backLight = make_shared<DiffuseLight>(Color(15, 15, 15));
+	world.Add(make_shared<Sphere>(Point3(-300, 150, -700), 100, backLight));
+	// light ball from bottom right to light up scene
+	world.Add(make_shared<Sphere>(Point3(-500, -400, -70), 100, backLight));
+
+	m_World = world;
+
+	// camera
+	Point3 lookfrom(-200, 50, -600);
+	Point3 lookat(300, 0, 100);
+	Vec3 vup(0, 1, 0);
+	auto dist_to_focus = 10.0;
+	auto aperture = 0.1;
+	m_AspectRatio = 16.0/9.0;
+	auto vfov = 40.0;
+	m_Background = Color(0.1, 0.1, 0.1);
 
 	Camera cam(lookfrom, lookat, vup, vfov, m_AspectRatio, aperture, dist_to_focus, 0.0, 1.0);
 

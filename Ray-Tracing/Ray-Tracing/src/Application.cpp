@@ -23,12 +23,13 @@ int main() {
     //scene.BuildScene8(); // earth and suns and portal
     //scene.BuildScene9(); // Cornell box
     //scene.BuildScene10(); // Cornell box with boxes
-    scene.BuildScene11(); // Cornell box with boxes with smoke
+    //scene.BuildScene11(); // Cornell box with boxes with smoke
+    scene.BuildScene12(); // book 2 final scene with all features
 
     // Image
-    const int image_width = 400;
+    const int image_width = 1000;
     const int image_height = static_cast<int>(image_width / scene.m_AspectRatio);
-    const int samples_per_pixel = 100;
+    const int samples_per_pixel = 500;
     const int max_depth = 50;
 
     // Recording the timestamp at the start of the code
@@ -65,7 +66,7 @@ int main() {
     auto duration = duration_cast<microseconds>(end - begin);
 
     // Displaying the elapsed time
-    std::cout << "Elapsed Time: " << duration.count() << " ms\n";
+    std::cout << "Elapsed Time: " << duration.count() << " microseconds\n";
 
     std::cerr << "Done.\n";
 

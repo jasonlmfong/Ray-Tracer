@@ -10,6 +10,7 @@
 #include "objects/Translate.h"
 #include "objects/Rotate.h"
 #include "objects/ConstantMedium.h"
+#include "objects/BVH.h"
 
 class Scene {
 public:
@@ -26,6 +27,7 @@ public:
 	void BuildScene9();
 	void BuildScene10();
 	void BuildScene11();
+	void BuildScene12();
 
 public:
 	HittableList m_World;
