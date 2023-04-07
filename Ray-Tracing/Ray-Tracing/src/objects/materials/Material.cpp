@@ -1,8 +1,23 @@
 #include "Material.h"
 
+bool Material::Scatter(const Ray& r_in, const hitRecord& rec, Color& attenuation, Ray& scattered) const
+{
+    return false;
+}
+
 Color Material::Emitted(double u, double v, const Point3& p) const
 {
     return Color(0, 0, 0);
+}
+
+Lambertian::Lambertian(const Color& a)
+    : albedo(make_shared<SolidColor>(a))
+{
+}
+
+Lambertian::Lambertian(shared_ptr<Texture> a)
+    : albedo(a)
+{
 }
 
 bool Lambertian::Scatter(const Ray& r_in, const hitRecord& rec, Color& attenuation, Ray& scattered) const

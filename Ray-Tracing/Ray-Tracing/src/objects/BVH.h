@@ -2,10 +2,10 @@
 #ifndef BVH_H
 #define BVH_H
 
-#include "../Utils.h"
+#include "../utils/Utils.h"
 
-#include "Hittable.h"
-#include "HittableList.h"
+#include "objects/Hittable.h"
+#include "objects/HittableList.h"
 
 #include <algorithm>
 

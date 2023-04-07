@@ -1,15 +1,18 @@
 #pragma once
 
 #include "Camera.h"
-#include "objects/HittableList.h"
-#include "objects/Material.h"
-#include "objects/Sphere.h"
-#include "objects/MovingSphere.h"
-#include "objects/AARect.h"
-#include "objects/Box.h"
+
+#include "objects/materials/Material.h"
+#include "objects/materials/ConstantMedium.h"
+
+#include "objects/objects/HittableList.h"
+#include "objects/objects/Sphere.h"
+#include "objects/objects/MovingSphere.h"
+#include "objects/objects/AARect.h"
+#include "objects/objects/Box.h"
+
 #include "objects/Translate.h"
 #include "objects/Rotate.h"
-#include "objects/ConstantMedium.h"
 #include "objects/BVH.h"
 
 class Scene {

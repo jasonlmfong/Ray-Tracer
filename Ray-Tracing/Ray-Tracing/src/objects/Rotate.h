@@ -2,7 +2,7 @@
 #ifndef ROTATE_H
 #define ROTATE_H
 
-#include "Hittable.h"
+#include "objects/Hittable.h"
 
 class RotateX : public Hittable {
 public:

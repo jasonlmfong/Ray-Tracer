@@ -2,7 +2,7 @@
 #ifndef AABB_H
 #define AABB_H
 
-#include "../Utils.h"
+#include "../utils/Utils.h"
 
 class AABB {
 public:

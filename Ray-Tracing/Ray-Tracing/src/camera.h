@@ -2,7 +2,7 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include "Utils.h"
+#include "utils/Utils.h"
 
 class Camera {
 public:

@@ -2,7 +2,7 @@
 #ifndef Box_H
 #define Box_H
 
-#include "../Utils.h"
+#include "../utils/Utils.h"
 
 #include "AARect.h"
 #include "HittableList.h"

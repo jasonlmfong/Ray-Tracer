@@ -2,9 +2,9 @@
 #ifndef CONSTANTMEDIUM_H
 #define CONSTANTMEDIUM_H
 
-#include "../Utils.h"
+#include "../utils/Utils.h"
 
-#include "Hittable.h"
+#include "../objects/Hittable.h"
 #include "Material.h"
 #include "Texture.h"
 

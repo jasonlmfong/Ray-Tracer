@@ -2,9 +2,9 @@
 #ifndef TEXTURE_H
 #define TEXTURE_H
 
-#include "../Utils.h"
-#include "../Perlin.h"
-#include "../SmoothPerlin.h"
+#include "../utils/Utils.h"
+#include "../utils/Perlin.h"
+#include "../utils/SmoothPerlin.h"
 #include "../vendor/stb/stb_image.h"
 #include "../vendor/stb/stb_image_write.h"
 

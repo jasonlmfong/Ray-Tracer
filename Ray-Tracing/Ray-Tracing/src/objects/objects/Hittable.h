@@ -2,10 +2,10 @@
 #ifndef HITTABLE_H
 #define HITTABLE_H
 
-#include "../Ray.h"
-#include "../Utils.h"
+#include "../utils/Ray.h"
+#include "../utils/Utils.h"
 
-#include "AABB.h"
+#include "../AABB.h"
 
 class Material;
 

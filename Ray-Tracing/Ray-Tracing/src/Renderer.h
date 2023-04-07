@@ -2,8 +2,8 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
-#include "Vec3.h"
-#include "Utils.h"
+#include "utils/Vec3.h"
+#include "utils/Utils.h"
 #include "vendor/stb/stb_image_write.h"
 
 #include <vector>

@@ -18,7 +18,7 @@
     <ClCompile Include="src\Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Ray.cpp">
+    <ClCompile Include="src\utils\Ray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Scene.cpp">
@@ -30,22 +30,22 @@
     <ClCompile Include="src\Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\objects\Material.cpp">
+    <ClCompile Include="src\objects\materials\Material.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Renderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\objects\Sphere.cpp">
+    <ClCompile Include="src\objects\objects\Sphere.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Vec3.cpp">
+    <ClCompile Include="src\utils\Vec3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\objects\MovingSphere.cpp">
+    <ClCompile Include="src\objects\objects\MovingSphere.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\objects\HittableList.cpp">
+    <ClCompile Include="src\objects\objects\HittableList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\objects\AABB.cpp">
@@ -54,22 +54,22 @@
     <ClCompile Include="src\objects\BVH.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\objects\Texture.cpp">
+    <ClCompile Include="src\objects\materials\Texture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Perlin.cpp">
+    <ClCompile Include="src\utils\Perlin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\SmoothPerlin.cpp">
+    <ClCompile Include="src\utils\SmoothPerlin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\vendor\stb\stb_image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\objects\AARect.cpp">
+    <ClCompile Include="src\objects\objects\AARect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\objects\Box.cpp">
+    <ClCompile Include="src\objects\objects\Box.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\objects\Translate.cpp">
@@ -78,15 +78,15 @@
     <ClCompile Include="src\objects\Rotate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\objects\ConstantMedium.cpp">
+    <ClCompile Include="src\objects\materials\ConstantMedium.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Ray.h">
+    <ClInclude Include="src\utils\Ray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Utils.h">
+    <ClInclude Include="src\utils\Utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\vendor\stb\stb_image_write.h">
@@ -95,19 +95,19 @@
     <ClInclude Include="src\vendor\stb\stb_image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Vec3.h">
+    <ClInclude Include="src\utils\Vec3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\objects\Sphere.h">
+    <ClInclude Include="src\objects\objects\Sphere.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\objects\Material.h">
+    <ClInclude Include="src\objects\materials\Material.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\objects\HittableList.h">
+    <ClInclude Include="src\objects\objects\HittableList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\objects\Hittable.h">
+    <ClInclude Include="src\objects\objects\Hittable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Renderer.h">
@@ -122,7 +122,7 @@
     <ClInclude Include="src\objects\RayTracer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\objects\MovingSphere.h">
+    <ClInclude Include="src\objects\objects\MovingSphere.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\objects\AABB.h">
@@ -131,19 +131,19 @@
     <ClInclude Include="src\objects\BVH.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\objects\Texture.h">
+    <ClInclude Include="src\objects\materials\Texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Perlin.h">
+    <ClInclude Include="src\utils\Perlin.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\SmoothPerlin.h">
+    <ClInclude Include="src\utils\SmoothPerlin.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\objects\AARect.h">
+    <ClInclude Include="src\objects\objects\AARect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\objects\Box.h">
+    <ClInclude Include="src\objects\objects\Box.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\objects\Translate.h">
@@ -152,7 +152,7 @@
     <ClInclude Include="src\objects\Rotate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\objects\ConstantMedium.h">
+    <ClInclude Include="src\objects\materials\ConstantMedium.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

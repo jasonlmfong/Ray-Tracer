@@ -2,8 +2,8 @@
 #ifndef RAYTRACER_H
 #define RAYTRACER_H
 
-#include "HittableList.h"
-#include "Material.h"
+#include "objects/HittableList.h"
+#include "materials/Material.h"
 
 #include <iostream>
 Color RayColor(const Ray& r, const Color& background, const Hittable& world, int depth) {

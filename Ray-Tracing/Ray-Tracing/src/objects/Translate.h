@@ -2,7 +2,7 @@
 #ifndef TRANSLATE_H
 #define TRANSLATE_H
 
-#include "Hittable.h"
+#include "objects/Hittable.h"
 
 class Translate : public Hittable {
 public:

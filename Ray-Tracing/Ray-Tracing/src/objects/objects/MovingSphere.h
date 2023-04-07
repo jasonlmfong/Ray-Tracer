@@ -2,7 +2,7 @@
 #ifndef MOVING_SPHERE_H
 #define MOVING_SPHERE_H
 
-#include "../Utils.h"
+#include "../utils/Utils.h"
 #include "Hittable.h"
 
 class MovingSphere : public Hittable {
