@@ -1,5 +1,4 @@
 # Ray-Tracing
-Ray Tracing
 
 ## Sample scene 1:
 ![Sample Spheres Rendering](Ray-Tracing/gallery/weekend/zoomed2.png)
@@ -17,6 +16,10 @@ Ray Tracing
 ![Final Scene with lots of Features](Ray-Tracing/gallery/nextWeek/finalScene.png)
 > 1000x562, 500 samples per pixel, 50 max ray bounce depth
 
+## CUDA Accelerated Ray Tracer
+If you wish to use the CUDA accelerated version, make sure you install NVCC
+
 ## Credits:
 [_Ray Tracing in One Weekend_](https://raytracing.github.io/books/RayTracingInOneWeekend.html)
+
 [_Ray Tracing: The Next Week_](https://raytracing.github.io/books/RayTracingTheNextWeek.html)

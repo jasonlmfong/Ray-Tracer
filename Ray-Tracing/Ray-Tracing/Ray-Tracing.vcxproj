@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|Win32">
-      <Configuration>Debug</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|Win32">
-      <Configuration>Release</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
       <Platform>x64</Platform>
@@ -18,50 +10,61 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="srcCUDA\Camera.h" />
+    <ClInclude Include="srcCUDA\objects\materials\Texture.h" />
+    <ClInclude Include="srcCUDA\objects\objects\MovingSphere.h" />
+    <ClInclude Include="srcCUDA\utils\Cuda.h" />
+    <ClInclude Include="srcCUDA\objects\objects\Hittable.h" />
+    <ClInclude Include="srcCUDA\objects\objects\HittableList.h" />
+    <ClInclude Include="srcCUDA\objects\materials\Material.h" />
+    <ClInclude Include="srcCUDA\utils\Ray.h" />
+    <ClInclude Include="srcCUDA\objects\RayTracer.h" />
+    <ClInclude Include="srcCUDA\Renderer.h" />
+    <ClInclude Include="srcCUDA\objects\objects\Sphere.h" />
+    <ClInclude Include="srcCUDA\utils\Utils.h" />
+    <ClInclude Include="srcCUDA\utils\Vec3.h" />
+    <ClInclude Include="srcCUDA\vendor\stb\stb_image.h" />
+    <ClInclude Include="srcCUDA\vendor\stb\stb_image_write.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="srcCUDA\Camera.cu" />
+    <CudaCompile Include="srcCUDA\objects\materials\Texture.cu" />
+    <CudaCompile Include="srcCUDA\objects\objects\HittableList.cu" />
+    <CudaCompile Include="srcCUDA\Application.cu" />
+    <CudaCompile Include="srcCUDA\objects\materials\Material.cu" />
+    <CudaCompile Include="srcCUDA\objects\objects\MovingSphere.cu" />
+    <CudaCompile Include="srcCUDA\utils\Ray.cu" />
+    <CudaCompile Include="srcCUDA\Renderer.cu" />
+    <CudaCompile Include="srcCUDA\objects\objects\Sphere.cu" />
+    <CudaCompile Include="srcCUDA\utils\Vec3.cu" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="srcCUDA\vendor\stb\stb_image.cpp" />
+    <ClCompile Include="srcCUDA\vendor\stb\stb_image_write.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
-    <VCProjectVersion>16.0</VCProjectVersion>
-    <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{703aba17-3976-4d33-8d16-a0574cc86ccc}</ProjectGuid>
-    <RootNamespace>RayTracing</RootNamespace>
+    <ProjectGuid>{426E55DD-5CDD-44A4-B752-38DB0742AE3B}</ProjectGuid>
+    <RootNamespace>Ray_Tracing</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
-  </ImportGroup>
-  <ImportGroup Label="Shared">
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 12.1.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -71,6 +74,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)intermediates\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
@@ -78,115 +82,48 @@
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)intermediates\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-    </ClCompile>
-    <Link>
-      <SubSystem>Console</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-    </ClCompile>
-    <Link>
-      <SubSystem>Console</SubSystem>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </Link>
-  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>src\vendor;</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;WIN64;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>cudadevrt.lib;cudart_static.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <CudaCompile>
+      <TargetMachinePlatform>64</TargetMachinePlatform>
+      <GenerateRelocatableDeviceCode>true</GenerateRelocatableDeviceCode>
+      <CodeGeneration>compute_52,sm_52</CodeGeneration>
+      <CompileOut>$(SolutionDir)intermediates\$(Platform)\$(Configuration)\%(Filename)%(Extension).obj</CompileOut>
+    </CudaCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>src\vendor;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;WIN64;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>cudadevrt.lib;cudart_static.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <CudaCompile>
+      <TargetMachinePlatform>64</TargetMachinePlatform>
+      <GenerateRelocatableDeviceCode>true</GenerateRelocatableDeviceCode>
+      <CodeGeneration>compute_52,sm_52</CodeGeneration>
+      <CompileOut>$(SolutionDir)intermediates\$(Platform)\$(Configuration)\%(Filename)%(Extension).obj</CompileOut>
+    </CudaCompile>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="src\Application.cpp" />
-    <ClCompile Include="src\Camera.cpp" />
-    <ClCompile Include="src\objects\AABB.cpp" />
-    <ClCompile Include="src\objects\objects\AARect.cpp" />
-    <ClCompile Include="src\objects\objects\Box.cpp" />
-    <ClCompile Include="src\objects\BVH.cpp" />
-    <ClCompile Include="src\objects\materials\ConstantMedium.cpp" />
-    <ClCompile Include="src\objects\objects\HittableList.cpp" />
-    <ClCompile Include="src\objects\materials\Material.cpp" />
-    <ClCompile Include="src\objects\objects\MovingSphere.cpp" />
-    <ClCompile Include="src\objects\Rotate.cpp" />
-    <ClCompile Include="src\objects\materials\Texture.cpp" />
-    <ClCompile Include="src\objects\Translate.cpp" />
-    <ClCompile Include="src\utils\Perlin.cpp" />
-    <ClCompile Include="src\utils\Ray.cpp" />
-    <ClCompile Include="src\Renderer.cpp" />
-    <ClCompile Include="src\Scene.cpp" />
-    <ClCompile Include="src\objects\objects\Sphere.cpp" />
-    <ClCompile Include="src\utils\SmoothPerlin.cpp" />
-    <ClCompile Include="src\utils\Vec3.cpp" />
-    <ClCompile Include="src\vendor\stb\stb_image.cpp" />
-    <ClCompile Include="src\vendor\stb\stb_image_write.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\Camera.h" />
-    <ClInclude Include="src\objects\AABB.h" />
-    <ClInclude Include="src\objects\objects\Box.h" />
-    <ClInclude Include="src\objects\BVH.h" />
-    <ClInclude Include="src\objects\objects\AARect.h" />
-    <ClInclude Include="src\objects\materials\ConstantMedium.h" />
-    <ClInclude Include="src\objects\objects\MovingSphere.h" />
-    <ClInclude Include="src\objects\Rotate.h" />
-    <ClInclude Include="src\objects\materials\Texture.h" />
-    <ClInclude Include="src\objects\Translate.h" />
-    <ClInclude Include="src\utils\Perlin.h" />
-    <ClInclude Include="src\Renderer.h" />
-    <ClInclude Include="src\objects\objects\Hittable.h" />
-    <ClInclude Include="src\objects\objects\HittableList.h" />
-    <ClInclude Include="src\objects\materials\Material.h" />
-    <ClInclude Include="src\utils\Ray.h" />
-    <ClInclude Include="src\objects\RayTracer.h" />
-    <ClInclude Include="src\Scene.h" />
-    <ClInclude Include="src\objects\objects\Sphere.h" />
-    <ClInclude Include="src\utils\SmoothPerlin.h" />
-    <ClInclude Include="src\utils\Utils.h" />
-    <ClInclude Include="src\utils\Vec3.h" />
-    <ClInclude Include="src\vendor\stb\stb_image.h" />
-    <ClInclude Include="src\vendor\stb\stb_image_write.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 12.1.targets" />
   </ImportGroup>
 </Project>
